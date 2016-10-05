@@ -55,6 +55,10 @@ namespace LifeLink.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AddressId,FirstName,LastName,Address1,Address2,City,ZipCode,PhoneNumber,Latitude,Longitude,UserId")] Address address)
         {
+            var UserId = User.Identity.GetUserId();
+            var email = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
+            
+
             if (ModelState.IsValid)
             {
                 var location = address.Address1 + address.City;
@@ -64,10 +68,10 @@ namespace LifeLink.Controllers
                 var longitude = point.Longitude;
                 address.Latitude = latitude;
                 address.Longitude = longitude;
-
+                
                 db.Address.Add(address);
                 db.SaveChanges();
-                SendSimpleMessage();
+                SendSimpleMessage(email.Email, address.FirstName);
 
                 return RedirectToAction("Index");
             }
@@ -78,7 +82,7 @@ namespace LifeLink.Controllers
 
 
 
-        public static IRestResponse SendSimpleMessage()
+        public static IRestResponse SendSimpleMessage(string email, string name)
         {
             RestClient client = new RestClient();
             client.BaseUrl =  new Uri("https://api.mailgun.net/v3");
@@ -90,9 +94,13 @@ namespace LifeLink.Controllers
                                 "sandbox8fc8526133914962ac4338c2fe382486.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox8fc8526133914962ac4338c2fe382486.mailgun.org>");
-            request.AddParameter("to", "Stephanie <stphn70@gmail.com>");
-            request.AddParameter("subject", "Hello Stephanie");
-            request.AddParameter("text", "Congratulations Stephanie, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.");
+            request.AddParameter("to", email);
+            request.AddParameter("subject", "Hello {0}"+ name);
+            request.AddParameter("text", "Congratulations {0}! Thank you for registering with LifeLink. LifeLink is a web app,"+
+                                 " that builds and cultivates the relationship between blood donors and their local donation center. We simplify"+
+                                 " and enrich the donation experience every step of the way. As a donor you can quickly and easily determine if"+
+                                 " you are qualified to donate through our simple questionnaire. This site is available in several different"+
+                                 " languages for your convenience.\n\nBest Regards,\n\nThe LifeLink Team"+ name);
             request.Method = Method.POST;
 
             IRestResponse response = client.Execute(request);
