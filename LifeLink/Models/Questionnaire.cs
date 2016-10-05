@@ -11,7 +11,7 @@ namespace LifeLink.Models
     {
         [Key]
         public int QuestionnaireId { get; set;}
-
+        
         public bool GeneralHealth1 { get; set; }
 
         public bool DonationHistory2 { get; set; }

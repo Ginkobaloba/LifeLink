@@ -71,7 +71,8 @@ namespace LifeLink.Controllers
                 
                 db.Address.Add(address);
                 db.SaveChanges();
-                SendSimpleMessage(userObject.Email, address.FirstName);
+                string message = CreateMessage(address.FirstName);
+                SendSimpleMessage(userObject.Email, address.FirstName, message);
 
                 return RedirectToAction("Index");
             }
@@ -82,7 +83,7 @@ namespace LifeLink.Controllers
 
 
 
-        public static IRestResponse SendSimpleMessage(string email, string name)
+        public static IRestResponse SendSimpleMessage(string email, string name, string message)
         {
             RestClient client = new RestClient();
             client.BaseUrl =  new Uri("https://api.mailgun.net/v3");
@@ -96,11 +97,7 @@ namespace LifeLink.Controllers
             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox8fc8526133914962ac4338c2fe382486.mailgun.org>");
             request.AddParameter("to", email);
             request.AddParameter("subject", string.Format("Hello {0}", name));
-            request.AddParameter("text", string.Format("Congratulations {0}! Thank you for registering with LifeLink. LifeLink is a web app,"+
-                                 " that builds and cultivates the relationship between blood donors and their local donation center. We simplify"+
-                                 " and enrich the donation experience every step of the way. As a donor you can quickly and easily determine if"+
-                                 " you are qualified to donate through our simple questionnaire. This site is available in several different"+
-                                 " languages for your convenience.\n\nBest Regards,\n\nThe LifeLink Team", name));
+            request.AddParameter("text", message);
             request.Method = Method.POST;
 
             IRestResponse response = client.Execute(request);
@@ -176,5 +173,16 @@ namespace LifeLink.Controllers
             }
             base.Dispose(disposing);
         }
+
+        string CreateMessage(string name)
+        {
+            string registerMessage = string.Format("Congratulations {0}! Thank you for registering with LifeLink. LifeLink is a web app," +
+                                 " that builds and cultivates the relationship between blood donors and their local donation center. We simplify" +
+                                 " and enrich the donation experience every step of the way. As a donor you can quickly and easily determine if" +
+                                 " you are qualified to donate through our simple questionnaire. This site is available in several different" +
+                                 " languages for your convenience.\n\nBest Regards,\n\nThe LifeLink Team", name);
+            return registerMessage;
+        }
+
     }
 }
