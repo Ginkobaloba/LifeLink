@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using LifeLink.Models;
 using Microsoft.AspNet.Identity;
 using GoogleMaps.LocationServices;
+using RestSharp;
+using RestSharp.Authenticators;
+using static System.Net.WebRequestMethods;
 
 namespace LifeLink.Controllers
 {
@@ -64,12 +67,39 @@ namespace LifeLink.Controllers
 
                 db.Address.Add(address);
                 db.SaveChanges();
+                SendSimpleMessage();
+
                 return RedirectToAction("Index");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", address.UserId);
             return View(address);
         }
+
+
+
+        public static IRestResponse SendSimpleMessage()
+        {
+            RestClient client = new RestClient();
+            client.BaseUrl =  new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+                   new HttpBasicAuthenticator("api",
+                                              "key-6b04081c6bcdb7dbbeba3a38cf108514");
+            RestRequest request = new RestRequest();
+            request.AddParameter("domain",
+                                "sandbox8fc8526133914962ac4338c2fe382486.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox8fc8526133914962ac4338c2fe382486.mailgun.org>");
+            request.AddParameter("to", "Stephanie <stphn70@gmail.com>");
+            request.AddParameter("subject", "Hello Stephanie");
+            request.AddParameter("text", "Congratulations Stephanie, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.");
+            request.Method = Method.POST;
+
+            IRestResponse response = client.Execute(request);
+            return response;
+        }
+
+
 
         // GET: Addresses/Edit/5
         public ActionResult Edit(int? id)
