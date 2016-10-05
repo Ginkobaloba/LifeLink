@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LifeLink.Models.Questionnaire>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientInfo.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeneralHealth1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonationHistory2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VaxOrShots3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pregnant4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medications5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RiskySex7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TatooOrPiercing8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jail9)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Needles10)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientInfo.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneralHealth1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonationHistory2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VaxOrShots3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pregnant4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medications5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RiskySex7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TatooOrPiercing8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jail9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Needles10)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuestionnaireId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuestionnaireId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuestionnaireId })
+        </td>
+    </tr>
+}
+
+</table>

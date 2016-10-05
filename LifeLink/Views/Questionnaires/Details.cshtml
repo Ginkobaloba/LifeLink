@@ -1,0 +1,106 @@
+﻿@model LifeLink.Models.Questionnaire
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Questionnaire</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientInfo.Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientInfo.Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneralHealth1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneralHealth1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonationHistory2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonationHistory2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VaxOrShots3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaxOrShots3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pregnant4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pregnant4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medications5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medications5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RiskySex7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RiskySex7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TatooOrPiercing8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TatooOrPiercing8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jail9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jail9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Needles10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Needles10)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionnaireId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

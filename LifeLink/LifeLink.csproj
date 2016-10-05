@@ -217,6 +217,7 @@
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuestionnairesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -310,6 +311,11 @@
     <Content Include="Views\Addresses\Details.cshtml" />
     <Content Include="Views\Addresses\Edit.cshtml" />
     <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Questionnaires\Create.cshtml" />
+    <Content Include="Views\Questionnaires\Delete.cshtml" />
+    <Content Include="Views\Questionnaires\Details.cshtml" />
+    <Content Include="Views\Questionnaires\Edit.cshtml" />
+    <Content Include="Views\Questionnaires\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
