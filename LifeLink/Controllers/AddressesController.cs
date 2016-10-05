@@ -56,7 +56,7 @@ namespace LifeLink.Controllers
         public ActionResult Create([Bind(Include = "AddressId,FirstName,LastName,Address1,Address2,City,ZipCode,PhoneNumber,Latitude,Longitude,UserId")] Address address)
         {
             var UserId = User.Identity.GetUserId();
-            var email = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
+            var userObject = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
             
 
             if (ModelState.IsValid)
@@ -71,7 +71,7 @@ namespace LifeLink.Controllers
                 
                 db.Address.Add(address);
                 db.SaveChanges();
-                SendSimpleMessage(email.Email, address.FirstName);
+                SendSimpleMessage(userObject.Email, address.FirstName);
 
                 return RedirectToAction("Index");
             }
@@ -95,12 +95,12 @@ namespace LifeLink.Controllers
             request.Resource = "{domain}/messages";
             request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox8fc8526133914962ac4338c2fe382486.mailgun.org>");
             request.AddParameter("to", email);
-            request.AddParameter("subject", "Hello {0}"+ name);
-            request.AddParameter("text", "Congratulations {0}! Thank you for registering with LifeLink. LifeLink is a web app,"+
+            request.AddParameter("subject", string.Format("Hello {0}", name));
+            request.AddParameter("text", string.Format("Congratulations {0}! Thank you for registering with LifeLink. LifeLink is a web app,"+
                                  " that builds and cultivates the relationship between blood donors and their local donation center. We simplify"+
                                  " and enrich the donation experience every step of the way. As a donor you can quickly and easily determine if"+
                                  " you are qualified to donate through our simple questionnaire. This site is available in several different"+
-                                 " languages for your convenience.\n\nBest Regards,\n\nThe LifeLink Team"+ name);
+                                 " languages for your convenience.\n\nBest Regards,\n\nThe LifeLink Team", name));
             request.Method = Method.POST;
 
             IRestResponse response = client.Execute(request);
