@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.GeneralHealth1, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <p>Are you in general good health? Check box if Yes</p>
-                <div class="checkbox">
+                <div class="checkbox"> yes
                     @Html.EditorFor(model => model.GeneralHealth1)
                     @Html.ValidationMessageFor(model => model.GeneralHealth1, "", new { @class = "text-danger" })
                 </div>
