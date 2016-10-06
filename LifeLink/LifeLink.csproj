@@ -233,13 +233,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610060322380_reset.cs" />
-    <Compile Include="Migrations\201610060322380_reset.Designer.cs">
-      <DependentUpon>201610060322380_reset.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610060325110_updated event to appointment.cs" />
-    <Compile Include="Migrations\201610060325110_updated event to appointment.Designer.cs">
-      <DependentUpon>201610060325110_updated event to appointment.cs</DependentUpon>
+    <Compile Include="Migrations\201610061635096_reset.cs" />
+    <Compile Include="Migrations\201610061635096_reset.Designer.cs">
+      <DependentUpon>201610061635096_reset.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -350,11 +346,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610060322380_reset.resx">
-      <DependentUpon>201610060322380_reset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610060325110_updated event to appointment.resx">
-      <DependentUpon>201610060325110_updated event to appointment.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610061635096_reset.resx">
+      <DependentUpon>201610061635096_reset.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -49,7 +49,7 @@ namespace LifeLink.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AppointmentID,AppointmentDate,CancelAppointment,LocationId,UserId")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "id,title,start,end,Status,LocationId,UserId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace LifeLink.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AppointmentID,AppointmentDate,CancelAppointment,LocationId,UserId")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "id,title,start,end,Status,LocationId,UserId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {

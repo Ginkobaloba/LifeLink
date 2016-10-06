@@ -27,24 +27,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AppointmentDate)
+            @Html.DisplayNameFor(model => model.title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AppointmentDate)
+            @Html.DisplayFor(model => model.title)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CancelAppointment)
+            @Html.DisplayNameFor(model => model.start)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CancelAppointment)
+            @Html.DisplayFor(model => model.start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AppointmentID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

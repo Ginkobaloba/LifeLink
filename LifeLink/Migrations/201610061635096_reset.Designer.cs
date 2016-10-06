@@ -13,7 +13,7 @@ namespace LifeLink.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610060322380_reset"; }
+            get { return "201610061635096_reset"; }
         }
         
         string IMigrationMetadata.Source

@@ -18,10 +18,16 @@
             @Html.DisplayNameFor(model => model.Location.LocationId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AppointmentDate)
+            @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CancelAppointment)
+            @Html.DisplayNameFor(model => model.start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
     </tr>
@@ -35,15 +41,21 @@
             @Html.DisplayFor(modelItem => item.Location.LocationId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AppointmentDate)
+            @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CancelAppointment)
+            @Html.DisplayFor(modelItem => item.start)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AppointmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AppointmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentID })
+            @Html.DisplayFor(modelItem => item.end)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
     </tr>
 }
