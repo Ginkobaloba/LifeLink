@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44363</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201610061635096_reset.Designer.cs">
       <DependentUpon>201610061635096_reset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610061718465_added FB loging.cs" />
+    <Compile Include="Migrations\201610061718465_added FB loging.Designer.cs">
+      <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -349,6 +353,9 @@
     <EmbeddedResource Include="Migrations\201610061635096_reset.resx">
       <DependentUpon>201610061635096_reset.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610061718465_added FB loging.resx">
+      <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -368,11 +375,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>10023</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:10023/</IISUrl>
+          <IISUrl>https://localhost:44363/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>https://localhost:44363/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

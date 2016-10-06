@@ -54,9 +54,9 @@ namespace LifeLink
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "897041663764785",
+               appSecret: "82c0c28874c5cf161f447b9418cf175a");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
