@@ -246,6 +246,10 @@
     <Compile Include="Migrations\201610062045441_Setting Up locations.Designer.cs">
       <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610062135466_add social icons.cs" />
+    <Compile Include="Migrations\201610062135466_add social icons.Designer.cs">
+      <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -369,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610062045441_Setting Up locations.resx">
       <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610062135466_add social icons.resx">
+      <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
