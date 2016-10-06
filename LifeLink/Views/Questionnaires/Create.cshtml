@@ -20,13 +20,15 @@
             <div class="col-md-10">
                 <p>Are you in general good health?</p>
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.GeneralHealth1)
-                    @Html.ValidationMessageFor(model => model.GeneralHealth1, "Yes", new { @class = "text-info", @checked = true })
+
+                    @Html.RadioButtonFor(model => model.GeneralHealth1, true, new { id = "health-true", @class = "text-info", @checked = true })
+                    @Html.Label("health-true", "Yes")
+
+                    @Html.RadioButtonFor(model => model.GeneralHealth1, false, new { id = "health-false", @class = "text-info", @checked = false })
+                    @Html.Label("health-false", "No")
+
                 </div>
-                <div class="checkbox">
-                        @Html.EditorFor(model => model.GeneralHealth1)
-                        @Html.ValidationMessageFor(model => model.GeneralHealth1, "No", new { @class = "text-info", @checked = false })
-                </div>
+                
                 </div>
             </div>
 
