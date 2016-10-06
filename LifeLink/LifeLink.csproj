@@ -216,9 +216,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Geometry.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Location.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Northeast.cs" />
+    <Compile Include="Controllers\OpeningHours.cs" />
+    <Compile Include="Controllers\Photo.cs" />
+    <Compile Include="Controllers\Place.cs" />
+    <Compile Include="Controllers\PlacesDictionary.cs" />
     <Compile Include="Controllers\QuestionnairesController.cs" />
+    <Compile Include="Controllers\Results.cs" />
+    <Compile Include="Controllers\Southwest.cs" />
+    <Compile Include="Controllers\Translator.cs" />
+    <Compile Include="Controllers\Viewport.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
