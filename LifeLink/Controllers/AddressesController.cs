@@ -22,12 +22,10 @@ namespace LifeLink.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-
-
             string UserID = User.Identity.GetUserId();
-            var address = (from u in db.Address where u.UserId == UserID select u);
+            var address = (from u in db.Address where u.UserId == UserID select u).ToList();
 
-            return View(address.ToList());
+            return View(address);
         }
 
         // GET: Addresses/Details/5

@@ -218,7 +218,8 @@
     <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\Geometry.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Location.cs" />
+    <Compile Include="Controllers\Locationlatlng.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Northeast.cs" />
     <Compile Include="Controllers\OpeningHours.cs" />
@@ -240,6 +241,10 @@
     <Compile Include="Migrations\201610061718465_added FB loging.cs" />
     <Compile Include="Migrations\201610061718465_added FB loging.Designer.cs">
       <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610062045441_Setting Up locations.cs" />
+    <Compile Include="Migrations\201610062045441_Setting Up locations.Designer.cs">
+      <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -337,6 +342,11 @@
     <Content Include="Views\Appointments\Details.cshtml" />
     <Content Include="Views\Appointments\Edit.cshtml" />
     <Content Include="Views\Appointments\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610061718465_added FB loging.resx">
       <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610062045441_Setting Up locations.resx">
+      <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

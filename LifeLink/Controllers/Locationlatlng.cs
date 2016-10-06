@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LifeLink.Controllers
 {
-    public class Location
+    public class Locationlatlng
     {
         public double lat { get; set; }
         public double lng { get; set; }

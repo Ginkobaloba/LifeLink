@@ -11,8 +11,13 @@ namespace LifeLink.Models
         [Key]
         public int LocationId { get; set; }
 
+        public string Name { get; set; }
+
+        public string StreetAddress { get; set; }
+
         public double LocationLong { get; set; }
 
         public double LocationLat { get; set; }
+
     }
 }

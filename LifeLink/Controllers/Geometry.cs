@@ -8,7 +8,7 @@ namespace LifeLink.Controllers
 {
     public class Geometry
     {
-        public Location location { get; set; }
+        public Locationlatlng locationlatlng { get; set; }
         public Viewport viewport { get; set; }
     }
 }
