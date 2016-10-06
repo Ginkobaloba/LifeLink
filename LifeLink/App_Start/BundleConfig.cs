@@ -26,7 +26,8 @@ namespace LifeLink
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/fullcalendar.css"));
+                      "~/Content/fullcalendar.css",
+                      "~/Content/font-awesome.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/fullcalendar").Include(
                     "~/Scripts/jquery-ui.min.js",

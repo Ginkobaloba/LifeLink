@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
 
 </head>
 <body>
@@ -33,15 +34,28 @@
         @RenderBody()
         <hr />
         <footer>
-            <a class="twitter-follow-button"
-               href="https://twitter.com/Ralphcrew"
-               data-size="large">Follow</a>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+            <span style="inline">
+                <a class="btn btn-danger" href="https://twitter.com/LifeLinkGroup"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i>&nbsp; Follow</a>
+                <a class="btn btn-danger" href="#"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; Email</a>
+                <a class="btn btn-danger" href="https://www.facebook.com/Project-TLC-102592336500272/"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>&nbsp; Like</a>
+                
+            </span>
+
+
+
+           
+
+
+
+
+            <p>&copy; @DateTime.Now.Year - Life Link Group</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Content/css")
     @RenderSection("scripts", required: false)
 </body>
 </html>
