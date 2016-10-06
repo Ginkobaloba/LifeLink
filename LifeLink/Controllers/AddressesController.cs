@@ -12,6 +12,8 @@ using GoogleMaps.LocationServices;
 using RestSharp;
 using RestSharp.Authenticators;
 using static System.Net.WebRequestMethods;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace LifeLink.Controllers
 {
@@ -62,7 +64,7 @@ namespace LifeLink.Controllers
             
 
             if (ModelState.IsValid)
-            {
+            {   
                 var location = address.Address1 + address.City;
                 var locationService = new GoogleLocationService();
                 var point = locationService.GetLatLongFromAddress(location);
@@ -74,7 +76,12 @@ namespace LifeLink.Controllers
                 db.Address.Add(address);
                 db.SaveChanges();
                 string message = CreateMessage(address.FirstName);
-                SendSimpleMessage(userObject.Email, address.FirstName, message);
+                Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
+
+                PlacesDictionary placesDictionary = new PlacesDictionary();
+                //Task.Factory.StartNew(() => 
+                placesDictionary.GetPlaces(latitude, longitude);
+
 
                 return RedirectToAction("Index");
             }
