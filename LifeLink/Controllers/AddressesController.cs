@@ -22,7 +22,11 @@ namespace LifeLink.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            var address = db.Address.Include(a => a.AspNetUsers);
+
+
+            string UserID = User.Identity.GetUserId();
+            var address = (from u in db.Address where u.UserId == UserID select u);
+
             return View(address.ToList());
         }
 
@@ -68,7 +72,7 @@ namespace LifeLink.Controllers
                 var longitude = point.Longitude;
                 address.Latitude = latitude;
                 address.Longitude = longitude;
-                
+                address.UserId = UserId;
                 db.Address.Add(address);
                 db.SaveChanges();
                 string message = CreateMessage(address.FirstName);
