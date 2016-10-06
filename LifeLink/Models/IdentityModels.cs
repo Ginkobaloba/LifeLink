@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -35,10 +36,11 @@ namespace LifeLink.Models
 
         public DbSet<ClientInfo> ClientInfo { get; set; }
 
-        public DbSet<Event> Event { get; set; }
+        public DbSet<Appointment> Event { get; set; }
 
         public DbSet <Location> Location { get; set; }
 
         public DbSet <Questionnaire> Questionnaire { get; set; }
+        public IEnumerable ApplicationUsers { get; internal set; }
     }
 }

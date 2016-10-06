@@ -7,13 +7,13 @@ namespace LifeLink.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedgooglelocationservices : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedgooglelocationservices));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610042256026_added google location services"; }
+            get { return "201610052234578_test"; }
         }
         
         string IMigrationMetadata.Source

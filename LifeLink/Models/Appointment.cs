@@ -7,7 +7,7 @@ using System.Web;
 
 namespace LifeLink.Models
 {
-    public class Event
+    public class Appointment
     {
         [Key]
         public int EventID { get; set; }

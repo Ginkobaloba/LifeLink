@@ -57,11 +57,6 @@ namespace LifeLink.Controllers
 
             var userNameObject = (from x in db.Address where (x.UserId == UserId) select x).FirstOrDefault();
             var userEmailObject = (from z in db.Users where (z.Id == questionnaire.ClientInfo.UserId) select z).FirstOrDefault();
-
-            
-
-           
-            
             
             if (ModelState.IsValid)
             {
@@ -80,8 +75,6 @@ namespace LifeLink.Controllers
 
                 else CreateDenialMessage(userNameObject.FirstName);
 
-
-
                 return RedirectToAction("Index");
             }
 
@@ -96,9 +89,7 @@ namespace LifeLink.Controllers
                             " at a LifeLink donation center of your choice. If you have not already made your appointment, feel free to log" +
                             " in to your LifeLink account at any time to schedule your next donation. You may be asked additional questions" +
                             " on the day of your appointment. Once again, we thank you for choosing to donate through LifeLink!", name);
-
             return message;
-
         }        
 
         string CreateDenialMessage(string name)
@@ -111,12 +102,8 @@ namespace LifeLink.Controllers
                             "out how or when you might become eligible.", name);
             return message;
 
-
         }
-        
-        
-        
-        
+
         
         // GET: Questionnaires/Edit/5
         public ActionResult Edit(int? id)
