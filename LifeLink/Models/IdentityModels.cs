@@ -36,7 +36,7 @@ namespace LifeLink.Models
 
         public DbSet<ClientInfo> ClientInfo { get; set; }
 
-        public DbSet<Appointment> Event { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
 
         public DbSet <Location> Location { get; set; }
 

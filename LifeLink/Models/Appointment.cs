@@ -10,9 +10,11 @@ namespace LifeLink.Models
     public class Appointment
     {
         [Key]
-        public int EventID { get; set; }
+        public int AppointmentID { get; set; }
 
-        public DateTime EventDate { get; set; }
+        public DateTime AppointmentDate { get; set; }
+
+        public bool CancelAppointment { get; set; }
 
         [ForeignKey("Location")]
         public int LocationId { get; set; }

@@ -222,9 +222,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610052234578_test.cs" />
-    <Compile Include="Migrations\201610052234578_test.Designer.cs">
-      <DependentUpon>201610052234578_test.cs</DependentUpon>
+    <Compile Include="Migrations\201610060322380_reset.cs" />
+    <Compile Include="Migrations\201610060322380_reset.Designer.cs">
+      <DependentUpon>201610060322380_reset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610060325110_updated event to appointment.cs" />
+    <Compile Include="Migrations\201610060325110_updated event to appointment.Designer.cs">
+      <DependentUpon>201610060325110_updated event to appointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -309,11 +313,11 @@
     <Content Include="Views\Questionnaires\Details.cshtml" />
     <Content Include="Views\Questionnaires\Edit.cshtml" />
     <Content Include="Views\Questionnaires\Index.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,8 +331,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610052234578_test.resx">
-      <DependentUpon>201610052234578_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610060322380_reset.resx">
+      <DependentUpon>201610060322380_reset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610060325110_updated event to appointment.resx">
+      <DependentUpon>201610060325110_updated event to appointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
