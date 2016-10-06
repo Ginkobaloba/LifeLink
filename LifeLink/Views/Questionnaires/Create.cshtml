@@ -7,137 +7,141 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Questionnaire</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.GeneralHealth1, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.GeneralHealth1, "1.", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <p>Are you in general good health? Check box if Yes</p>
+                <p>Are you in general good health?</p>
                 <div class="checkbox">
                     @Html.EditorFor(model => model.GeneralHealth1)
-                    @Html.ValidationMessageFor(model => model.GeneralHealth1, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.GeneralHealth1, "Yes", new { @class = "text-info", @checked = true })
                 </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DonationHistory2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>In the past 8 weeks, have you donated blood platlets or plasma?</p>
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.DonationHistory2)
-                    @Html.ValidationMessageFor(model => model.DonationHistory2, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.GeneralHealth1)
+                        @Html.ValidationMessageFor(model => model.GeneralHealth1, "No", new { @class = "text-info", @checked = false })
+                </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DonationHistory2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>In the past 8 weeks, have you donated blood platlets or plasma?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.DonationHistory2)
+                        @Html.ValidationMessageFor(model => model.DonationHistory2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VaxOrShots3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>In the past 8 weeks, have you had any vaccinations or shots?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.VaxOrShots3)
+                        @Html.ValidationMessageFor(model => model.VaxOrShots3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Pregnant4, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Are you, or do you suspect you may be pregnant?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Pregnant4)
+                        @Html.ValidationMessageFor(model => model.Pregnant4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Medications5, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Have you taken any of the medications on this list in the past  weeks?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Medications5)
+                        @Html.ValidationMessageFor(model => model.Medications5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Weight6, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Do you weigh at least 110 pounds?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Weight6)
+                        @Html.ValidationMessageFor(model => model.Weight6, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RiskySex7, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Have you engaged in risky sexual behavior in the past 12 months?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.RiskySex7)
+                        @Html.ValidationMessageFor(model => model.RiskySex7, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TatooOrPiercing8, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Have you had a tatoo, ear or body piercing in the past 6 months?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.TatooOrPiercing8)
+                        @Html.ValidationMessageFor(model => model.TatooOrPiercing8, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Jail9, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Have you been juvenile detention, lockup, jail, or prison for more than 72 consecutive hours?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Jail9)
+                        @Html.ValidationMessageFor(model => model.Jail9, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Needles10, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p>Have you used needles to take drugs, steroids, or anything not prescribed by your doctor?</p>
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Needles10)
+                        @Html.ValidationMessageFor(model => model.Needles10, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Am I Eligible" class="btn btn-default" />
                 </div>
             </div>
         </div>
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.VaxOrShots3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>In the past 8 weeks, have you had any vaccinations or shots?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.VaxOrShots3)
-                    @Html.ValidationMessageFor(model => model.VaxOrShots3, "", new { @class = "text-danger" })
-                </div>
-            </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Pregnant4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Are you, or do you suspect you may be pregnant?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Pregnant4)
-                    @Html.ValidationMessageFor(model => model.Pregnant4, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Medications5, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Have you taken any of the medications on this list in the past  weeks?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Medications5)
-                    @Html.ValidationMessageFor(model => model.Medications5, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Weight6, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Do you weigh at least 110 pounds?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Weight6)
-                    @Html.ValidationMessageFor(model => model.Weight6, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RiskySex7, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Have you engaged in risky sexual behavior in the past 12 months?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.RiskySex7)
-                    @Html.ValidationMessageFor(model => model.RiskySex7, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TatooOrPiercing8, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Have you had a tatoo, ear or body piercing in the past 6 months?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.TatooOrPiercing8)
-                    @Html.ValidationMessageFor(model => model.TatooOrPiercing8, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Jail9, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Have you been juvenile detention, lockup, jail, or prison for more than 72 consecutive hours?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Jail9)
-                    @Html.ValidationMessageFor(model => model.Jail9, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Needles10, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <p>Have you used needles to take drugs, steroids, or anything not prescribed by your doctor?</p>
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Needles10)
-                    @Html.ValidationMessageFor(model => model.Needles10, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Am I Eligible" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
