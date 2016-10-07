@@ -17,6 +17,7 @@ namespace LifeLink.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public string LanguageCode { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
