@@ -7,13 +7,13 @@ namespace LifeLink.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class removedforeignkeyrestriction : IMigrationMetadata
+    public sealed partial class morelanguagechoices : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removedforeignkeyrestriction));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(morelanguagechoices));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610071425272_removed foreign key restriction"; }
+            get { return "201610071835534_more language choices"; }
         }
         
         string IMigrationMetadata.Source
