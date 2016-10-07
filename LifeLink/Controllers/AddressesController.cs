@@ -64,7 +64,7 @@ namespace LifeLink.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AddressId,FirstName,LastName,Address1,Address2,City,ZipCode,PhoneNumber,Latitude,Longitude,UserId")] Address address)
         {
-            var UserId = User.Identity.GetUserId();
+            string UserId = User.Identity.GetUserId();
             var userObject = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
 
 
@@ -85,10 +85,11 @@ namespace LifeLink.Controllers
                 Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
-                Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
+                //Task.Factory.StartNew(() => 
+                placesDictionary.GetPlaces(latitude, longitude);
 
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
-                distancematrixapi.GetDistance(address);
+                distancematrixapi.GetDistance(address, UserId);
 
                 return RedirectToAction("Index");
             }
