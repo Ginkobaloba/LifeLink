@@ -256,10 +256,9 @@
     <Compile Include="Migrations\201610062135466_add social icons.Designer.cs">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610071500092_test.cs" />
-    <Compile Include="Migrations\201610071835534_more language choices.cs" />
-    <Compile Include="Migrations\201610071835534_more language choices.Designer.cs">
-      <DependentUpon>201610071835534_more language choices.cs</DependentUpon>
+    <Compile Include="Migrations\201610071425272_removed foreign key restriction.cs" />
+    <Compile Include="Migrations\201610071425272_removed foreign key restriction.Designer.cs">
+      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -363,10 +362,10 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Addresses\CreateSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_GlobalResources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -389,8 +388,8 @@
     <EmbeddedResource Include="Migrations\201610062135466_add social icons.resx">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610071835534_more language choices.resx">
-      <DependentUpon>201610071835534_more language choices.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610071425272_removed foreign key restriction.resx">
+      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
