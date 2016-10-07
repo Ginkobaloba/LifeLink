@@ -126,7 +126,7 @@ namespace LifeLink.Controllers
                 Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
 
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
-                distancematrixapi.GetDistance(address);
+                distancematrixapi.GetDistance(address,UserId);
 
                 return RedirectToAction("Index");
             }
