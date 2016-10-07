@@ -120,6 +120,13 @@ namespace LifeLink.Controllers
                 db.Address.Add(address);
                 db.SaveChanges();
                 string message = CreateMessage(address.FirstName);
+
+                if (userObject.LanguageCode != "en")
+                {
+                    Translator Translator = new Translator();
+                    message = Translator.Translate(userObject.LanguageCode, message);
+
+                }
                 Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();

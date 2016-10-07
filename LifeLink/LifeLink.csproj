@@ -256,9 +256,9 @@
     <Compile Include="Migrations\201610062135466_add social icons.Designer.cs">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610071425272_removed foreign key restriction.cs" />
-    <Compile Include="Migrations\201610071425272_removed foreign key restriction.Designer.cs">
-      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
+    <Compile Include="Migrations\201610072036178_added translator for messages.cs" />
+    <Compile Include="Migrations\201610072036178_added translator for messages.Designer.cs">
+      <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -388,8 +388,8 @@
     <EmbeddedResource Include="Migrations\201610062135466_add social icons.resx">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610071425272_removed foreign key restriction.resx">
-      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610072036178_added translator for messages.resx">
+      <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

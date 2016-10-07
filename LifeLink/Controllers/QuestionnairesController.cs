@@ -69,6 +69,14 @@ namespace LifeLink.Controllers
                     questionnaire.TatooOrPiercing8 && questionnaire.Jail9 && questionnaire.Needles10)
                 {
                     string message = CreateApprovalMessage(userNameObject.FirstName);
+
+                    if (userEmailObject.LanguageCode != "en")
+                    {
+                        Translator Translator = new Translator();
+                        message = Translator.Translate(userEmailObject.LanguageCode, message);
+
+                    }
+
                     RedirectToAction("SendSimpleMessage", "Addresses", new { userEmailObject.Email, userNameObject.FirstName, message });
                     return RedirectToAction("Details", "Addresses");
                 }
