@@ -21,13 +21,13 @@ namespace LifeLink.Controllers
             {
             var query = (from l in db.Location select l).ToList();
             string originlatlng = Origin.Latitude + "," + Origin.Longitude;
-            List<>
+            //List<>
 
             foreach (Location item in query)
             {
                 string apiKey = "AIzaSyC0EV_dRHnElwBT7uk0fE98oBD6AkKW9cI";
                 string googleUrl;
-                googleUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + originlatlng + "&destinations=" + destinationlatlng + "&key=" + apiKey;
+                googleUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + originlatlng + "&destinations="; //+ destinationlatlng + "&key=" + apiKey;
 
                 WebRequest request = WebRequest.Create(googleUrl);
                 request.Method = "GET";
@@ -41,7 +41,7 @@ namespace LifeLink.Controllers
                 Distanceobject results = JsonConvert.DeserializeObject<Distanceobject>(responseFromServer);
                 List<string> location_distance = new List<string>();
                 location_distance.Add(item.Name);
-                location_distance.Add(results);
+                //location_distance.Add();
 
                 reader.Close();
                 dataStream.Close();
