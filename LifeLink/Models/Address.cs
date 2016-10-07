@@ -36,6 +36,10 @@ namespace LifeLink.Models
         public double Longitude { get; set; }
 
 
+        [ForeignKey("Location")]
+        public int ClosestLocationId { get; set; }
+        public Location location { get; set; }
+
         [ForeignKey("AspNetUsers")]
         public string UserId { get; set; }
         public ApplicationUser AspNetUsers { get; set; }

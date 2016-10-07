@@ -79,8 +79,7 @@ namespace LifeLink.Controllers
                 Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
-                //Task.Factory.StartNew(() => 
-                placesDictionary.GetPlaces(latitude, longitude);
+                Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
 
 
                 return RedirectToAction("Index");

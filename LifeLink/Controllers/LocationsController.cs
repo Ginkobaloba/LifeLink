@@ -24,9 +24,11 @@ namespace LifeLink.Controllers
             string userID = User.Identity.GetUserId();
 
             var userAddress = (from a in db.Address where a.UserId == userID select a).FirstOrDefault();
-            
 
 
+            DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
+
+            distancematrixapi.GetDistance(userAddress);
 
 
 
