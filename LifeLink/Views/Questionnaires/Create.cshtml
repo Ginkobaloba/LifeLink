@@ -20,13 +20,15 @@
             <div class="col-md-10">
                 <p>Are you in general good health?</p>
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.GeneralHealth1)
-                    @Html.ValidationMessageFor(model => model.GeneralHealth1, "Yes", new { @class = "text-info", @checked = true })
+
+                    @Html.RadioButtonFor(model => model.GeneralHealth1, true, new { id = "health-true", @class = "text-info", @checked = true })
+                    @Html.Label("health-true", "Yes")
+
+                    @Html.RadioButtonFor(model => model.GeneralHealth1, false, new { id = "health-false", @class = "text-info", @checked = false })
+                    @Html.Label("health-false", "No")
+
                 </div>
-                <div class="checkbox">
-                        @Html.EditorFor(model => model.GeneralHealth1)
-                        @Html.ValidationMessageFor(model => model.GeneralHealth1, "No", new { @class = "text-info", @checked = false })
-                </div>
+                
                 </div>
             </div>
 
@@ -35,12 +37,11 @@
                 <div class="col-md-10">
                     <p>In the past 8 weeks, have you donated blood platlets or plasma?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.DonationHistory2)
-                        @Html.ValidationMessageFor(model => model.DonationHistory2, "Yes", new { @class = "text-danger" , @checked = true})
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.DonationHistory2)
-                        @Html.ValidationMessageFor(model => model.DonationHistory2, "No", new { @class = "text-info", @checked = false })
+                        @Html.RadioButtonFor(model => model.DonationHistory2, true, new { id = "donation-true", @class = "text-info", @checked = true })
+                        @Html.Label("donation-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.DonationHistory2, false, new { id = "donation-false", @class = "text-info", @checked = false })
+                        @Html.Label("donation-false", "No")
                     </div>
                 </div>
             </div>
@@ -50,12 +51,11 @@
                 <div class="col-md-10">
                     <p>In the past 8 weeks, have you had any vaccinations or shots?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.VaxOrShots3)
-                        @Html.ValidationMessageFor(model => model.VaxOrShots3, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.VaxOrShots3)
-                        @Html.ValidationMessageFor(model => model.VaxOrShots3, "No", new { @class = "text-danger", @checked = true })
+                        @Html.RadioButtonFor(model => model.VaxOrShots3, true, new { id = "Vax-true", @class = "text-info", @checked = true })
+                        @Html.Label("Vax-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.VaxOrShots3, false, new { id = "Vax-false", @class = "text-info", @checked = false })
+                        @Html.Label("Vax-false", "No")
                     </div>
                 </div>
             </div>
@@ -65,12 +65,11 @@
                 <div class="col-md-10">
                     <p>Are you, or do you suspect you may be pregnant?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.Pregnant4)
-                        @Html.ValidationMessageFor(model => model.Pregnant4, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Pregnant4)
-                        @Html.ValidationMessageFor(model => model.Pregnant4, "No", new { @class = "text-danger", @checked = true })
+                       @Html.RadioButtonFor(model => model.Pregnant4, true, new { id = "pregnant-true", @class = "text-info", @checked = true })
+                       @Html.Label("Pregnant-true", "Yes")
+
+                       @Html.RadioButtonFor(model => model.Pregnant4, false, new { id = "pregnant-false", @class = "text-info", @checked = false })
+                       @Html.Label("Pregnant-false", "No")
                     </div>
                 </div>
             </div>
@@ -80,12 +79,11 @@
                 <div class="col-md-10">
                     <p>Have you taken any of the medications on this list in the past  weeks?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.Medications5)
-                        @Html.ValidationMessageFor(model => model.Medications5, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Medications5)
-                        @Html.ValidationMessageFor(model => model.Medications5, "No", new { @class = "text-danger", @checked = false})
+                        @Html.RadioButtonFor(model => model.Medications5, true, new { id = "Medication-true", @class = "text-info", @checked = true })
+                        @Html.Label("Medication-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.Medications5, false, new { id = "Medication-false", @class = "text-info", @checked = false })
+                        @Html.Label("Medication-false", "No")
                     </div>
                 </div>
             </div>
@@ -95,8 +93,11 @@
                 <div class="col-md-10">
                     <p>Do you weigh at least 110 pounds?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.Weight6)
-                        @Html.ValidationMessageFor(model => model.Weight6, "", new { @class = "text-danger", @checked = true })
+                        @Html.RadioButtonFor(model => model.Weight6, true, new { id = "weight-true", @class = "text-info", @checked = true })
+                        @Html.Label("weight-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.Weight6, false, new { id = "weight-false", @class = "text-info", @checked = false })
+                        @Html.Label("weight-false", "No")
                     </div>
 
                 </div>
@@ -107,12 +108,11 @@
                 <div class="col-md-10">
                     <p>Have you engaged in risky sexual behavior in the past 12 months?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.RiskySex7)
-                        @Html.ValidationMessageFor(model => model.RiskySex7, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.RiskySex7)
-                        @Html.ValidationMessageFor(model => model.RiskySex7, "No", new { @class = "text-danger", @checked = false })
+                        @Html.RadioButtonFor(model => model.RiskySex7, true, new { id = "risky-true", @class = "text-info", @checked = true })
+                        @Html.Label("rsiky-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.RiskySex7, false, new { id = "risky-false", @class = "text-info", @checked = false })
+                        @Html.Label("risky-false", "No")
                     </div>
                 </div>
             </div>
@@ -122,12 +122,11 @@
                 <div class="col-md-10">
                     <p>Have you had a tatoo, ear or body piercing in the past 6 months?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.TatooOrPiercing8)
-                        @Html.ValidationMessageFor(model => model.TatooOrPiercing8, "Yes", new { @class = "text-danger", @checked = true})
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.TatooOrPiercing8)
-                        @Html.ValidationMessageFor(model => model.TatooOrPiercing8, "No", new { @class = "text-danger", @checked = false })
+                        @Html.RadioButtonFor(model => model.TatooOrPiercing8, true, new { id = "tatoo-true", @class = "text-info", @checked = true })
+                        @Html.Label("tatoo-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.TatooOrPiercing8, false, new { id = "tatoo-false", @class = "text-info", @checked = false })
+                        @Html.Label("tatoo-false", "No")
                     </div>
                 </div>
             </div>
@@ -137,12 +136,11 @@
                 <div class="col-md-10">
                     <p>Have you been juvenile detention, lockup, jail, or prison for more than 72 consecutive hours?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.Jail9)
-                        @Html.ValidationMessageFor(model => model.Jail9, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Jail9)
-                        @Html.ValidationMessageFor(model => model.Jail9, "No", new { @class = "text-danger", @checked = false })
+                       @Html.RadioButtonFor(model => model.Jail9, true, new { id = "jail-true", @class = "text-info", @checked = true })
+                       @Html.Label("jail-true", "Yes")
+
+                       @Html.RadioButtonFor(model => model.Jail9, false, new { id = "jail-false", @class = "text-info", @checked = false })
+                       @Html.Label("jail-false", "No")
                     </div>
                 </div>
             </div>
@@ -152,12 +150,11 @@
                 <div class="col-md-10">
                     <p>Have you used needles to take drugs, steroids, or anything not prescribed by your doctor?</p>
                     <div class="checkbox">
-                        @Html.EditorFor(model => model.Needles10)
-                        @Html.ValidationMessageFor(model => model.Needles10, "Yes", new { @class = "text-danger", @checked = true })
-                    </div>
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Needles10)
-                        @Html.ValidationMessageFor(model => model.Needles10, "No", new { @class = "text-danger", @checked = false })
+                        @Html.RadioButtonFor(model => model.Needles10, true, new { id = "needles-true", @class = "text-info", @checked = true })
+                        @Html.Label("needles-true", "Yes")
+
+                        @Html.RadioButtonFor(model => model.Needles10, false, new { id = "needles-false", @class = "text-info", @checked = false })
+                        @Html.Label("needles-false", "No")
                     </div>
                 </div>
             </div>
