@@ -10,14 +10,21 @@ using LifeLink.Models;
 
 namespace LifeLink.Controllers
 {
+    
     class DistanceMatrixAPI
     {
-            public void distanceMatriAapi()
+        public  ApplicationDbContext db = new ApplicationDbContext();
+
+        public void distanceMatriAapi()
             { }
             public void GetDistance(Address Origin)
             {
-                string originlatlng = "43.0389,-87.9065";
-                string destinationlatlng = "43.1789,-88.1173";
+            var query = (from l in db.Location select l).ToList();
+            string originlatlng = Origin.Latitude + "," + Origin.Longitude;
+            List<>
+
+            foreach (Location item in query)
+            {
                 string apiKey = "AIzaSyC0EV_dRHnElwBT7uk0fE98oBD6AkKW9cI";
                 string googleUrl;
                 googleUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + originlatlng + "&destinations=" + destinationlatlng + "&key=" + apiKey;
@@ -32,11 +39,15 @@ namespace LifeLink.Controllers
                 string responseFromServer = reader.ReadToEnd();
                 responseFromServer = responseFromServer.ToString();
                 Distanceobject results = JsonConvert.DeserializeObject<Distanceobject>(responseFromServer);
-                Console.WriteLine(responseFromServer);
-                Console.ReadLine();
+                List<string> location_distance = new List<string>();
+                location_distance.Add(item.Name);
+                location_distance.Add(results);
+
                 reader.Close();
                 dataStream.Close();
                 response.Close();
+
+            }
             }
         }
     }

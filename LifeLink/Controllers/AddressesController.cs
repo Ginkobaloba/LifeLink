@@ -72,6 +72,7 @@ namespace LifeLink.Controllers
                 var longitude = point.Longitude;
                 address.Latitude = latitude;
                 address.Longitude = longitude;
+                address.ClosestLocationId = 0;
                 address.UserId = UserId;
                 db.Address.Add(address);
                 db.SaveChanges();
@@ -80,6 +81,9 @@ namespace LifeLink.Controllers
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
                 Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
+
+                DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
+                distancematrixapi.GetDistance(address);
 
                 return RedirectToAction("Index");
             }
