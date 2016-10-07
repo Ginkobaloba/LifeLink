@@ -52,19 +52,19 @@ namespace LifeLink.Controllers
                         
                         Location BloodBank = new Location();
 
-                        if (item.geometry.locationlatlng.lat != null)
-                        {
-                            BloodBank.LocationLat = item.geometry.locationlatlng.lat;
-                            BloodBank.LocationLong = item.geometry.locationlatlng.lng;
-                        }
-                        else
+                        if (item.geometry.locationlatlng == null)
                         {
                             var location = item.vicinity;
                             var locationService = new GoogleLocationService();
                             var point = locationService.GetLatLongFromAddress(location);
                             BloodBank.LocationLat = point.Latitude;
                             BloodBank.LocationLong = point.Longitude;
+                        }
+                        else
+                        {
 
+                            BloodBank.LocationLat = item.geometry.locationlatlng.lat;
+                            BloodBank.LocationLong = item.geometry.locationlatlng.lng;
                         }
 
                         BloodBank.Name = item.name;
