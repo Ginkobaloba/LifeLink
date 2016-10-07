@@ -52,6 +52,11 @@ namespace LifeLink.Controllers
             return View();
         }
 
+        public ActionResult CreateSP()
+        {
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
+            return View();
+        }
         // POST: Addresses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -92,6 +97,42 @@ namespace LifeLink.Controllers
             return View(address);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateSP([Bind(Include = "AddressId,FirstName,LastName,Address1,Address2,City,ZipCode,PhoneNumber,Latitude,Longitude,UserId")] Address address)
+        {
+            var UserId = User.Identity.GetUserId();
+            var userObject = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
+
+
+            if (ModelState.IsValid)
+            {
+                var location = address.Address1 + address.City;
+                var locationService = new GoogleLocationService();
+                var point = locationService.GetLatLongFromAddress(location);
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                address.Latitude = latitude;
+                address.Longitude = longitude;
+                address.ClosestLocationId = 0;
+                address.UserId = UserId;
+                db.Address.Add(address);
+                db.SaveChanges();
+                string message = CreateMessage(address.FirstName);
+                Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
+
+                PlacesDictionary placesDictionary = new PlacesDictionary();
+                Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
+
+                DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
+                distancematrixapi.GetDistance(address);
+
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", address.UserId);
+            return View(address);
+        }
 
 
         public static IRestResponse SendSimpleMessage(string email, string name, string message)
