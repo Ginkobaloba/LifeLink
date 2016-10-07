@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
 using LifeLink.Models;
 
@@ -17,6 +18,29 @@ namespace LifeLink.Controllers
         // GET: Locations
         public ActionResult Index()
         {
+
+           List<Location> locations = db.Location.ToList();
+
+            string userID = User.Identity.GetUserId();
+
+            var userAddress = (from a in db.Address where a.UserId == userID select a).FirstOrDefault();
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             return View(db.Location.ToList());
         }
 

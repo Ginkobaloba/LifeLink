@@ -216,6 +216,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Distance.cs" />
+    <Compile Include="Controllers\DistanceMatrixAPI.cs" />
+    <Compile Include="Controllers\Distanceobject.cs" />
+    <Compile Include="Controllers\Duration.cs" />
+    <Compile Include="Controllers\Element.cs" />
     <Compile Include="Controllers\Geometry.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locationlatlng.cs" />
@@ -228,6 +233,7 @@
     <Compile Include="Controllers\PlacesDictionary.cs" />
     <Compile Include="Controllers\QuestionnairesController.cs" />
     <Compile Include="Controllers\Results.cs" />
+    <Compile Include="Controllers\Row.cs" />
     <Compile Include="Controllers\Southwest.cs" />
     <Compile Include="Controllers\Translator.cs" />
     <Compile Include="Controllers\Viewport.cs" />
