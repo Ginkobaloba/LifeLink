@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
 using LifeLink.Models;
@@ -15,8 +16,28 @@ namespace LifeLink.Controllers
         // GET: Locations
         public ActionResult Index()
         {
+            string UserID = User.Identity.GetUserId();
+            var querylocations = (from L in db.Location select L).ToList();
+            List<LocationViewModel> Locations = new List<LocationViewModel>();
+            var query = (from a in db.Address where a.UserId == UserID select a).FirstOrDefault();
+                
+            foreach (var item in querylocations)
+            {
+                LocationViewModel viewmodel = new LocationViewModel();
 
-            return View(db.Location.ToList());
+                viewmodel.LocationId = item.LocationId;
+                viewmodel.LocationLat = item.LocationLat;
+                viewmodel.LocationLong = item.LocationLong;
+                viewmodel.Name = item.Name;
+                viewmodel.StreetAddress = item.StreetAddress;
+                viewmodel.personlat = query.Latitude;
+                viewmodel.personlng = query.Longitude;
+                Locations.Add(viewmodel);
+            }
+            
+
+
+            return View(Locations);
         }
 
         // GET: Locations/Details/5

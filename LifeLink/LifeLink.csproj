@@ -267,6 +267,7 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Questionnaire.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

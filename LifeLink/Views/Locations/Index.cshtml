@@ -1,51 +1,81 @@
-﻿@model IEnumerable<LifeLink.Models.Location>
+﻿@model IEnumerable<LifeLink.Models.LocationViewModel>
 
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <style>
+        #map {
+            width: 100%;
+            height: 50%;
+        }
+    </style>
 
-<h2>Index</h2>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPhuvNN439sVvdr5Fpg4maQjMCz-FtAZM&callback=HomePosition">
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationLong)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationLat)
-        </th>
-        <th></th>
-    </tr>
+ function initmap (){
+                navigator.geolocation.getCurrentPosition(currentPosition,HomePosition);
+            }
+
+
+   function currentPosition(position) {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: {lat: position.coords.latitude, lng: position.coords.longitude},
+                zoom: 12
+            });
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationLong)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationLat)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LocationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LocationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LocationId })
-        </td>
-    </tr>
-}
+                <text>
+                    var marker = new google.maps.Marker({
+                        position: { lat: @item.LocationLat , lng: @item.LocationLong},
+                        map: map,
+                        title:"@item.Name"
+                    });</text> }
+            }
 
-</table>
+
+
+
+        function HomePosition() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: {lat: 43.1640854, lng: -88.1038742},
+                zoom: 12
+            });
+                @foreach (var item in Model) {
+                    <text>
+                        var marker = new google.maps.Marker({
+                            position: { lat: @item.LocationLat , lng: @item.LocationLong},
+                            map: map,
+                            title: "@item.Name"
+                        });</text> }
+        }
+
+    </script>
+    <div class="twitter-timeline col-md-5">
+        <h3>Check us out on Twitter</h3>
+        <div id="twitterTimeline">
+            <a class="twitter-timeline" data-width="600" data-height="300" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/LifeLinkGroup">Tweets by LifeLinkGroup</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <div id="twitterButtons">
+            <a href="https://twitter.com/intent/tweet?screen_name=LifeLinkGroup" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to &#x40;LifeLinkGroup</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <span id="followButton"><a class="twitter-follow-button" href="https://twitter.com/LifeLinkGroup" data-size="large" data-show-count="false">Follow &#x40;LifeLinkGroup</a></span>
+        </div>
+    </div>
+
+    <span style="inline">
+        <a class="btn btn-danger" href='@Url.Action("Create", "Questionnaires")'><i class="fa fa-question-circle-o fa-fw" aria-hidden="true"></i>&nbsp; Required Questionnaire</a>
+        <a class="btn btn-danger" href="#"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i>&nbsp; Set Appointment</a>
+    </span>
+</body>
+
