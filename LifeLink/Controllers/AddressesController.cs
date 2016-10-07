@@ -61,7 +61,7 @@ namespace LifeLink.Controllers
         {
             var UserId = User.Identity.GetUserId();
             var userObject = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
-            
+
 
             if (ModelState.IsValid)
             {   
@@ -80,7 +80,6 @@ namespace LifeLink.Controllers
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
                 Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
-
 
                 return RedirectToAction("Index");
             }

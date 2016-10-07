@@ -256,9 +256,9 @@
     <Compile Include="Migrations\201610062135466_add social icons.Designer.cs">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610071412187_updated address to hold nearest location.cs" />
-    <Compile Include="Migrations\201610071412187_updated address to hold nearest location.Designer.cs">
-      <DependentUpon>201610071412187_updated address to hold nearest location.cs</DependentUpon>
+    <Compile Include="Migrations\201610071425272_removed foreign key restriction.cs" />
+    <Compile Include="Migrations\201610071425272_removed foreign key restriction.Designer.cs">
+      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -387,8 +387,8 @@
     <EmbeddedResource Include="Migrations\201610062135466_add social icons.resx">
       <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610071412187_updated address to hold nearest location.resx">
-      <DependentUpon>201610071412187_updated address to hold nearest location.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610071425272_removed foreign key restriction.resx">
+      <DependentUpon>201610071425272_removed foreign key restriction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
