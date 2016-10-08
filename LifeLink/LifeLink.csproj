@@ -260,9 +260,18 @@
     <Compile Include="Migrations\201610072036178_added translator for messages.Designer.cs">
       <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610081203144_added calendar.cs" />
+    <Compile Include="Migrations\201610081203144_added calendar.Designer.cs">
+      <DependentUpon>201610081203144_added calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610081213242_updated appt controller.cs" />
+    <Compile Include="Migrations\201610081213242_updated appt controller.Designer.cs">
+      <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AppointmentViewModel.cs" />
     <Compile Include="Models\ClientInfo.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -391,6 +400,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610072036178_added translator for messages.resx">
       <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610081203144_added calendar.resx">
+      <DependentUpon>201610081203144_added calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610081213242_updated appt controller.resx">
+      <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

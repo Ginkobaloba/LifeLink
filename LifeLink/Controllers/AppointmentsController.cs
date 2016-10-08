@@ -17,7 +17,16 @@ namespace LifeLink.Controllers
         // GET: Appointments
         public ActionResult Index()
         {
-            var appointment = db.Appointment.Include(a => a.AspNetUsers).Include(a => a.Location);
+            var appointment = db.Appointment.Include(a => a.AspNetUsers).Include(a => a.Location).Select(a => new AppointmentViewModel()
+            {
+                id = a.id,
+                title = a.title,
+                start = a.start,
+                end = a.end,
+                Status = a.Status,
+                LocationName = a.Location.Name,
+                Username = a.AspNetUsers.UserName
+            });
             return View(appointment.ToList());
         }
 
@@ -39,7 +48,7 @@ namespace LifeLink.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId");
             return View();
         }
@@ -58,7 +67,7 @@ namespace LifeLink.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", appointment.UserId);
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId", appointment.LocationId);
             return View(appointment);
         }
@@ -75,7 +84,7 @@ namespace LifeLink.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", appointment.UserId);
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId", appointment.LocationId);
             return View(appointment);
         }
@@ -93,7 +102,7 @@ namespace LifeLink.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", appointment.UserId);
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId", appointment.LocationId);
             return View(appointment);
         }

@@ -1,10 +1,12 @@
-﻿@model IEnumerable<LifeLink.Models.Appointment>
+﻿@model IEnumerable<LifeLink.Models.AppointmentViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "LifeLink - Donor Calendar";
 }
 
-<h2>Index</h2>
+<h2>Donor Calendar</h2>
+
+<div id="appointment-calendar"></div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,10 +14,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+            @Html.DisplayNameFor(model => model.Username)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location.LocationId)
+            @Html.DisplayNameFor(model => model.LocationName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.title)
@@ -32,32 +34,79 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location.LocationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.start)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.end)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+          var myArray = new Array();
+    @foreach (var d in Model)
+    {
+ @:var appointment = {};
+ @:appointment.id = '@d.id';
+ @:appointment.title = '@d.title';
+ @:appointment.start = '@d.start';
+ @:appointment.end = '@d.end';
+        @:myArray.push(appointment);
+    }
+
+        $('#appointment-calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            timezone: 'local',
+            weekends: true,
+            defaultTImedEventDuration: '00:15:00',
+            navLinks: true,
+            selectable: true,
+            selectHelper: true,
+            select: function (start, end) {
+                var title = prompt('Event Title:');
+                var eventData;
+                if (title) {
+                    eventData = {
+                        title: title,
+                        start: start,
+                        end: end
+                    };
+                    $('#calendar').fullCalendar('renderEvent', eventData, true);
+                }
+                $('#calendar').fullCalendar('unselect');
+            },
+            editable: false,
+            eventLimit: true,
+            events: myArray
+
+        });
+    })
+</script>
