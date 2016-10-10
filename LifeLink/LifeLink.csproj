@@ -232,6 +232,7 @@
     <Compile Include="Controllers\Place.cs" />
     <Compile Include="Controllers\PlacesDictionary.cs" />
     <Compile Include="Controllers\QuestionnairesController.cs" />
+    <Compile Include="Controllers\Recaptcha.cs" />
     <Compile Include="Controllers\Results.cs" />
     <Compile Include="Controllers\Row.cs" />
     <Compile Include="Controllers\Southwest.cs" />
