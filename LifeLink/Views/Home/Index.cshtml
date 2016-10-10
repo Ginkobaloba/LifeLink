@@ -38,20 +38,40 @@
     <!-- /.row -->
 
     <div class="row">
-        <div class="col-md-3">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+        <div class="twitter-timeline col-md-3">
+            <div id="twitterTimeline">
+                <a class="twitter-timeline" data-width="600" data-height="300" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/LifeLinkGroup">Tweets by LifeLinkGroup</a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
+            <div id="twitterButtons">
+                <a href="https://twitter.com/intent/tweet?screen_name=LifeLinkGroup" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to &#x40;LifeLinkGroup</a>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <span id="followButton"><a class="twitter-follow-button" href="https://twitter.com/LifeLinkGroup" data-size="large" data-show-count="false">Follow &#x40;LifeLinkGroup</a></span>
+            </div>
         </div>
 
-        <div class="col-md-9">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="col-md-3">
+            <h2>Step One</h2>
+            <p>
+                In order to preserve the health of our community it is vital that our donors complete the questionaire eligibility form. 
+            </p>
+            <p><a class="btn btn-default" href="@Url.Action("Create","Questionnaires")">Learn more</a></p>
         </div>
+
+        <div class="col-md-3">
+            <h2>Step Two</h2>
+            <p>You can easily be a hero. Join the league of lifelink today.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Create","Appointments")">Learn more</a></p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Step Three</h2>
+            <p>You can easily be a hero. Join the league of lifelink today.</p>
+            <p><a class="btn btn-default" href="@Url.Action("Index","Addresses")">Learn more</a></p>
+        </div>
+
+ 
     </div>
 </div>
