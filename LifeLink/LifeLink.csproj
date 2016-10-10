@@ -242,45 +242,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610061635096_reset.cs" />
-    <Compile Include="Migrations\201610061635096_reset.Designer.cs">
-      <DependentUpon>201610061635096_reset.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610061718465_added FB loging.cs" />
-    <Compile Include="Migrations\201610061718465_added FB loging.Designer.cs">
-      <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610062045441_Setting Up locations.cs" />
-    <Compile Include="Migrations\201610062045441_Setting Up locations.Designer.cs">
-      <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610062135466_add social icons.cs" />
-    <Compile Include="Migrations\201610062135466_add social icons.Designer.cs">
-      <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610072036178_added translator for messages.cs" />
-    <Compile Include="Migrations\201610072036178_added translator for messages.Designer.cs">
-      <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610081203144_added calendar.cs" />
-    <Compile Include="Migrations\201610081203144_added calendar.Designer.cs">
-      <DependentUpon>201610081203144_added calendar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610081213242_updated appt controller.cs" />
-    <Compile Include="Migrations\201610081213242_updated appt controller.Designer.cs">
-      <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610101311539_add clientinfoes controller and view back into project.cs" />
-    <Compile Include="Migrations\201610101311539_add clientinfoes controller and view back into project.Designer.cs">
-      <DependentUpon>201610101311539_add clientinfoes controller and view back into project.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610101336185_change client info db.cs" />
-    <Compile Include="Migrations\201610101336185_change client info db.Designer.cs">
-      <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610101352059_change client info model.cs" />
-    <Compile Include="Migrations\201610101352059_change client info model.Designer.cs">
-      <DependentUpon>201610101352059_change client info model.cs</DependentUpon>
+    <Compile Include="Migrations\201610101528236_fresh clone.cs" />
+    <Compile Include="Migrations\201610101528236_fresh clone.Designer.cs">
+      <DependentUpon>201610101528236_fresh clone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -405,35 +369,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610061635096_reset.resx">
-      <DependentUpon>201610061635096_reset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610061718465_added FB loging.resx">
-      <DependentUpon>201610061718465_added FB loging.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610062045441_Setting Up locations.resx">
-      <DependentUpon>201610062045441_Setting Up locations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610062135466_add social icons.resx">
-      <DependentUpon>201610062135466_add social icons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610072036178_added translator for messages.resx">
-      <DependentUpon>201610072036178_added translator for messages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610081203144_added calendar.resx">
-      <DependentUpon>201610081203144_added calendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610081213242_updated appt controller.resx">
-      <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610101311539_add clientinfoes controller and view back into project.resx">
-      <DependentUpon>201610101311539_add clientinfoes controller and view back into project.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610101336185_change client info db.resx">
-      <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610101352059_change client info model.resx">
-      <DependentUpon>201610101352059_change client info model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610101528236_fresh clone.resx">
+      <DependentUpon>201610101528236_fresh clone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

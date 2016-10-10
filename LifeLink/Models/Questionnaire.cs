@@ -33,7 +33,7 @@ namespace LifeLink.Models
         public bool Needles10 { get; set; }
 
         [ForeignKey("ClientInfo")]
-        public string ClientInfoId { get; set; }
+        public int ClientInfoId { get; set; }
         public ClientInfo ClientInfo { get; set; }
         
     }

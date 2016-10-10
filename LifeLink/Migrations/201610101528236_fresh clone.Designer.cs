@@ -7,13 +7,13 @@ namespace LifeLink.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedFBloging : IMigrationMetadata
+    public sealed partial class freshclone : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedFBloging));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(freshclone));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610061718465_added FB loging"; }
+            get { return "201610101528236_fresh clone"; }
         }
         
         string IMigrationMetadata.Source

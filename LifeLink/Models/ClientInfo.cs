@@ -11,7 +11,7 @@ namespace LifeLink.Models
     {
 
         [Key]
-        public string CientInfoId { get; set; }
+        public int ClientInfoId { get; set; }
         
         public string BloodType { get; set; }
 

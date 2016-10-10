@@ -11,9 +11,19 @@
         <a class="btn btn-danger" href="@Url.Action("Index", "Manage")"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Manage Account</a>
     </span>
 </div>
+<h1 class="register-title">Select Location</h1>
+<form class="register">
+    <div class="register-switch">
+        <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
+        <label for="sex_f" class="register-switch-label">Home</label>
+        <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
+        <label for="sex_m" class="register-switch-label">Current</label>
+    </div>
+    <input type="submit" value="Select closest" class="register-button">
+    <input type="submit" value="Make Appointment" class="register-button">
+</form>
 
-
-    <div id="map"></div>
+<div id="map"></div>
     <script>
         function initMap (){
             navigator.geolocation.getCurrentPosition(currentPosition,HomePosition);

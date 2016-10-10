@@ -51,11 +51,15 @@ namespace LifeLink.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CientInfoId,DateOfBirth,Sex,BloodType,height,weight,Approved,UserId")] ClientInfo clientInfo)
         {
-            var UserId = User.Identity.GetUserId();
+
+
+            string UserId = User.Identity.GetUserId();
             var userObject = (from x in db.Users where (x.Id == UserId) select x).FirstOrDefault();
 
             if (ModelState.IsValid)
             {
+                clientInfo.AspNetUsers = userObject;
+
                 db.ClientInfo.Add(clientInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
