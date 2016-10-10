@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LifeLink.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LifeLink.Controllers
 {
@@ -48,8 +49,17 @@ namespace LifeLink.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
+            
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId");
+
+            var UserId = User.Identity.GetUserId();
+            var clientInfo = (from c in db.ClientInfo where (c.UserId == UserId) select c).FirstOrDefault();
+
+            if (clientInfo.Approved != true)
+            {
+                return RedirectToAction("Denial", "Questionnaires");
+            }
             return View();
         }
 
@@ -60,6 +70,16 @@ namespace LifeLink.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,title,start,end,Status,LocationId,UserId")] Appointment appointment)
         {
+            var UserId = User.Identity.GetUserId();
+
+            var clientInfo = (from c in db.ClientInfo where (c.UserId == appointment.UserId) select c).FirstOrDefault();
+
+            if (clientInfo.Approved != true)
+            {
+                RedirectToAction("Denial", "Questionnaires");
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Appointment.Add(appointment);
