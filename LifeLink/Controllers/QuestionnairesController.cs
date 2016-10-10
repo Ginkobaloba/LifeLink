@@ -22,6 +22,16 @@ namespace LifeLink.Controllers
             return View(questionnaire.ToList());
         }
 
+        public ActionResult Approval()
+        {
+            return View();
+        }
+
+        public ActionResult Denial()
+        {
+            return View();
+        }
+
         // GET: Questionnaires/Details/5
         public ActionResult Details(int? id)
         {
@@ -56,8 +66,10 @@ namespace LifeLink.Controllers
             var user = db.Questionnaire.Include(q => q.ClientInfo);
 
             var userNameObject = (from x in db.Address where (x.UserId == UserId) select x).FirstOrDefault();
-            var userEmailObject = (from z in db.Users where (z.Id == questionnaire.ClientInfo.UserId) select z).FirstOrDefault();
-            
+            var userEmailObject = (from z in db.Users where (z.Id == userNameObject.UserId) select z).FirstOrDefault();
+            var clientInfo = (from c in db.ClientInfo where (c.AspNetUsers.Id == userEmailObject.Id) select c).FirstOrDefault();
+            questionnaire.ClientInfoId = clientInfo.ClientInfoId;
+                                  
             if (ModelState.IsValid)
             {
                 db.Questionnaire.Add(questionnaire);
@@ -78,12 +90,15 @@ namespace LifeLink.Controllers
                     }
 
                     RedirectToAction("SendSimpleMessage", "Addresses", new { userEmailObject.Email, userNameObject.FirstName, message });
-                    return RedirectToAction("Details", "Addresses");
+                    return RedirectToAction("Approval");
                 }
 
-                else CreateDenialMessage(userNameObject.FirstName);
+                else
+                {
+                    CreateDenialMessage(userNameObject.FirstName);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Denial");
+                }
             }
 
             ViewBag.ClientInfoId = new SelectList(db.ClientInfo, "CientInfoId", "Sex", questionnaire.ClientInfoId);

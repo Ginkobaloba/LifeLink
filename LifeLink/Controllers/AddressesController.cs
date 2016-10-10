@@ -91,7 +91,7 @@ namespace LifeLink.Controllers
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
                 distancematrixapi.GetDistance(address, UserId);
 
-                return RedirectToAction("Index", "Locations");
+                return RedirectToAction("Create", "Questionnaires");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", address.UserId);
@@ -135,7 +135,7 @@ namespace LifeLink.Controllers
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
                 distancematrixapi.GetDistance(address,UserId);
 
-                return RedirectToAction("Index", "Locations");
+                return RedirectToAction("Create", "Questionnaires");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", address.UserId);
