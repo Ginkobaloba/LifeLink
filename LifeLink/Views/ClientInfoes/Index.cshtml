@@ -15,21 +15,11 @@
         <th>
             @Html.DisplayNameFor(model => model.AspNetUsers.LanguageCode)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sex)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.BloodType)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weight)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Approved)
         </th>
@@ -41,28 +31,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.AspNetUsers.LanguageCode)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sex)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.BloodType)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weight)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.Approved)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CientInfoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CientInfoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CientInfoId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClientInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClientInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClientInfoId })
         </td>
     </tr>
 }

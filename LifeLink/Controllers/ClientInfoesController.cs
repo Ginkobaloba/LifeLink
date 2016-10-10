@@ -62,7 +62,7 @@ namespace LifeLink.Controllers
 
                 db.ClientInfo.Add(clientInfo);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
             }
 
             ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", clientInfo.UserId);    //removed "LanguageCode" Weird that it was included here.
