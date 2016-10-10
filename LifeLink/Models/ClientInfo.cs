@@ -12,14 +12,14 @@ namespace LifeLink.Models
 
         [Key]
         public string CientInfoId { get; set; }
-        [Required]
+        
         public DateTime DateOfBirth { get; set; }
 
         public string Sex { get; set; }
 
         public string BloodType { get; set; }
 
-        public float height { get; set; }
+        public int height { get; set; }
 
         public int weight { get; set; }
 

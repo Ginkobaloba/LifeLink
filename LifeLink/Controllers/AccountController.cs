@@ -171,9 +171,9 @@ namespace LifeLink.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     if (model.LanguageCode == "es")
                     {
-                        return RedirectToAction("CreateSP", "Addresses");
+                        return RedirectToAction("Create", "ClientInfoes");
                     }
-                    return RedirectToAction("Create", "Addresses");
+                    return RedirectToAction("Create", "ClientInfoes");
                 }
                 AddErrors(result);
             }
