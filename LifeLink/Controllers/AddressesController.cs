@@ -85,7 +85,6 @@ namespace LifeLink.Controllers
                 Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
-                //Task.Factory.StartNew(() => 
                 placesDictionary.GetPlaces(latitude, longitude);
 
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
@@ -130,10 +129,10 @@ namespace LifeLink.Controllers
                 Task.Factory.StartNew(() => SendSimpleMessage(userObject.Email, address.FirstName, message));
 
                 PlacesDictionary placesDictionary = new PlacesDictionary();
-                Task.Factory.StartNew(() => placesDictionary.GetPlaces(latitude, longitude));
+                placesDictionary.GetPlaces(latitude, longitude);
 
                 DistanceMatrixAPI distancematrixapi = new DistanceMatrixAPI();
-                distancematrixapi.GetDistance(address,UserId);
+                distancematrixapi.GetDistance(address, UserId);
 
                 return RedirectToAction("Create", "Questionnaires");
             }

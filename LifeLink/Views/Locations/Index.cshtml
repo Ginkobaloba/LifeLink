@@ -19,7 +19,7 @@
         <input type="radio" name="sex" value="C" id="sex_m" class="register-switch-input">
         <label for="sex_m" class="register-switch-label">Current</label>
     </div>
-    <input type="button" value="Select closest" class="register-button" onclick="HomeOrCurrent(document.getElementById('sex_f').value)">
+    <input type="button" value="Select closest" class="register-button" onclick="HomeOrCurrent(document.getElementById('sex_f').checked)">
     <input type="button" value="Make Appointment" class="register-button" onclick="myFunction()">
 </form>
 
@@ -65,13 +65,16 @@
 
         function HomeOrCurrent(value)
         {
-            if (value == 'H')
+            if (value == true )
             {
-                GetHomeRoute();
+                var api = 'https://itunes.apple.com/search?'
+                var apiRequest = api + encoded
+                var toBeAppened = '<script src=' + apiRequest +'><\/script>'
+                jQuery('body').append(toBeAppened);
             }
             else 
             {
-            navigator.geolocation.getCurrentPosition(GetCurrentRoute,GetHomePosition);
+            navigator.geolocation.getCurrentPosition(GetCurrentRoute,GetHomeRoute);
             }
         }
 
