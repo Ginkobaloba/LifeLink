@@ -120,7 +120,7 @@ namespace LifeLink.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CientInfoId,DateOfBirth,Sex,BloodType,height,weight,Approved,UserId")] ClientInfo clientInfo)
+        public ActionResult Edit([Bind(Include = "CientInfoId, BloodType, Approved, UserId")] ClientInfo clientInfo)
         {
             if (ModelState.IsValid)
             {

@@ -81,7 +81,9 @@ namespace LifeLink.Controllers
                     questionnaire.TatooOrPiercing8 && questionnaire.Jail9 && questionnaire.Needles10)
                 {
                     string message = CreateApprovalMessage(userNameObject.FirstName);
-
+                    clientInfo.Approved = true;
+                    RedirectToAction("Edit", "ClientInfoes", new { clientInfo.Approved });
+                    
                     if (userEmailObject.LanguageCode != "en")
                     {
                         Translator Translator = new Translator();
