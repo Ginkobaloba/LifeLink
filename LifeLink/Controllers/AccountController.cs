@@ -168,7 +168,7 @@ namespace LifeLink.Controllers
                         {
                             return RedirectToAction("Create", "ClientInfoes");
                         }
-                        return RedirectToAction("Create", "ClientInfoes");
+                        return RedirectToAction("CreateSP", "ClientInfoes");
                     }
                     AddErrors(result);
                 

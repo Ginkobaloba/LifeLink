@@ -7,13 +7,13 @@ namespace LifeLink.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatedaddresstoholdnearestlocation : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedaddresstoholdnearestlocation));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610071412187_updated address to hold nearest location"; }
+            get { return "201610101542112_test"; }
         }
         
         string IMigrationMetadata.Source
