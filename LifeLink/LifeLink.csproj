@@ -355,6 +355,7 @@
     <Content Include="Views\ClientInfoes\Details.cshtml" />
     <Content Include="Views\ClientInfoes\Edit.cshtml" />
     <Content Include="Views\ClientInfoes\Index.cshtml" />
+    <Content Include="Views\ClientInfoes\CreateSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
