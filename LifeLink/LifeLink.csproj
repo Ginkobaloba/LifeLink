@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\ClientInfoesController.cs" />
     <Compile Include="Controllers\Distance.cs" />
     <Compile Include="Controllers\DistanceMatrixAPI.cs" />
     <Compile Include="Controllers\Distanceobject.cs" />
@@ -267,6 +268,14 @@
     <Compile Include="Migrations\201610081213242_updated appt controller.cs" />
     <Compile Include="Migrations\201610081213242_updated appt controller.Designer.cs">
       <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610101311539_add clientinfoes controller and view back into project.cs" />
+    <Compile Include="Migrations\201610101311539_add clientinfoes controller and view back into project.Designer.cs">
+      <DependentUpon>201610101311539_add clientinfoes controller and view back into project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610101336185_change client info db.cs" />
+    <Compile Include="Migrations\201610101336185_change client info db.Designer.cs">
+      <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -372,6 +381,11 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\ClientInfoes\Create.cshtml" />
+    <Content Include="Views\ClientInfoes\Delete.cshtml" />
+    <Content Include="Views\ClientInfoes\Details.cshtml" />
+    <Content Include="Views\ClientInfoes\Edit.cshtml" />
+    <Content Include="Views\ClientInfoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,6 +420,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610081213242_updated appt controller.resx">
       <DependentUpon>201610081213242_updated appt controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610101311539_add clientinfoes controller and view back into project.resx">
+      <DependentUpon>201610101311539_add clientinfoes controller and view back into project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610101336185_change client info db.resx">
+      <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
