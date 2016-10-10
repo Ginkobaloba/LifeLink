@@ -14,12 +14,12 @@
 <h1 class="register-title">Select Location</h1>
 <form class="register">
     <div class="register-switch">
-        <input type="radio" name="sex" value="H" id="sex" class="register-switch-input" checked>
+        <input type="radio" name="sex" value="H" id="sex_f" class="register-switch-input" checked>
         <label for="sex_f" class="register-switch-label">Home</label>
-        <input type="radio" name="sex" value="C" id="sex" class="register-switch-input">
+        <input type="radio" name="sex" value="C" id="sex_m" class="register-switch-input">
         <label for="sex_m" class="register-switch-label">Current</label>
     </div>
-    <input type="button" value="Select closest" class="register-button" onclick="HomeOrCurrent(document.getElementById('sex').value)">
+    <input type="button" value="Select closest" class="register-button" onclick="HomeOrCurrent(document.getElementById('sex_f').value)">
     <input type="button" value="Make Appointment" class="register-button" onclick="myFunction()">
 </form>
 

@@ -71,8 +71,8 @@ namespace LifeLink.Controllers
                 
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", clientInfo.UserId);    //removed "LanguageCode" Weird that it was included here.
-            return RedirectToAction("Create", "Adresses");
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", clientInfo.UserId);    //removed "LanguageCode" Weird that it was included here.
+            return RedirectToAction("Create", "Addresses");
         }
 
 
@@ -94,7 +94,7 @@ namespace LifeLink.Controllers
 
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", clientInfo.UserId);    //removed "LanguageCode" Weird that it was included here.
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", clientInfo.UserId);    //removed "LanguageCode" Weird that it was included here.
             return RedirectToAction("CreateSP", "Addresses");
                    
         }
