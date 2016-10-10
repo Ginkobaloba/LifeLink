@@ -278,6 +278,10 @@
     <Compile Include="Migrations\201610101336185_change client info db.Designer.cs">
       <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610101352059_change client info model.cs" />
+    <Compile Include="Migrations\201610101352059_change client info model.Designer.cs">
+      <DependentUpon>201610101352059_change client info model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -427,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610101336185_change client info db.resx">
       <DependentUpon>201610101336185_change client info db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610101352059_change client info model.resx">
+      <DependentUpon>201610101352059_change client info model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
