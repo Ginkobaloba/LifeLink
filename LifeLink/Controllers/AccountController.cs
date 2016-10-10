@@ -152,30 +152,36 @@ namespace LifeLink.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LanguageCode = model.LanguageCode };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+               string EncodedResponse = Request.Form["g-Recaptcha-Response"];
+               bool IsCaptchaValid = (Recaptcha.Validate(EncodedResponse) == "True" ? true : false);
 
-                    string EncodedResponse = Request.Form["g-Recaptcha-Response"];
-                    bool IsCaptchaValid = (Recaptcha.Validate(EncodedResponse) == "True" ? true : false);
-                    if (IsCaptchaValid)
+                if (IsCaptchaValid == true)
+                {
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email, LanguageCode = model.LanguageCode };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+
+                    if (result.Succeeded)
                     {
-                        //valid request
-                    }
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    if (model.LanguageCode == "es")
-                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        if (model.LanguageCode == "es")
+                        {
+                            return RedirectToAction("Create", "ClientInfoes");
+                        }
                         return RedirectToAction("Create", "ClientInfoes");
                     }
-                    return RedirectToAction("Create", "ClientInfoes");
+                    AddErrors(result);
+                
                 }
-                AddErrors(result);
+                    if(IsCaptchaValid == false)
+                    {
+                        CaptchaError();
+                        Dispose(true);
+                        return View(model);
+
+                    }
+                   
+             
             }
 
             // If we got this far, something failed, redisplay form
@@ -436,6 +442,7 @@ namespace LifeLink.Controllers
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
+        private string errorMessage;
 
         private IAuthenticationManager AuthenticationManager
         {
@@ -451,6 +458,12 @@ namespace LifeLink.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        private void CaptchaError()
+        {
+            errorMessage = "Complete Recaptcha";
+            ModelState.AddModelError("", errorMessage);
         }
 
         private ActionResult RedirectToLocal(string returnUrl)
