@@ -5,8 +5,34 @@
 }
 
 <h2>Donor Calendar</h2>
+<div class="row">
+    <div class="col-md-3"><div id="datepicker"></div></div>
+    <div class="col-md-8"><div id="appointment-calendar"></div></div>
+</div>
+@*<form id="logform" enctype="multipart/form-data" action="calendar" method="post">
+    <select name='logoption' id='logoption' form="logform">
+        <option value="0"> Select logtype </option>*@
+@*<?php
+    //SQL in laravel style to get log types from database
+    $logtypes = DB::table('time_log_types')->get();
 
-<div id="appointment-calendar"></div>
+    foreach ($logtypes as $logtype) {
+    echo '
+    <option value="' . $logtype->id . '">' . $logtype->logtype . '</option>';
+    }
+    ?>*@
+@*</select>
+
+        <div id="illness" style="display:none">
+            <p>End date: <input type="text" name="enddate" id="enddate"></p> <!-- this one is not getting the date as mindate -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+            <p>Doctor's note: <input type="file" name="doctorsnote" id="doctorsnote" /></p>
+        </div>
+
+        <input type="button" value="submit" id="submitbutton" style="display:none" onclick="submit()" />
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <input type='hidden' name='logdate' id='logdate'> <!-- this one gets the proper date -->
+    </form>*@
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -16,15 +42,15 @@
         <th>
             @Html.DisplayNameFor(model => model.LocationName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.start)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.end)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.end)
+            </th>*@
         <th></th>
     </tr>
 
@@ -34,15 +60,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LocationName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.start)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.end)
-            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.end)
+                </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.id }) |
@@ -55,7 +81,17 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-          var myArray = new Array();
+        $('#datepicker').datepicker({
+            inline: true,
+            onSelect: function (dateText, inst) {
+                var d = new Date(dateText);
+                $('#appointment-calendar').fullCalendar('gotoDate', d);
+            }
+        });
+    })
+
+    $(document).ready(function () {
+    var myArray = new Array();
     @foreach (var d in Model)
     {
  @:var appointment = {};
@@ -70,13 +106,18 @@
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: ''
             },
             timezone: 'local',
+            defaultView:'agendaDay',
             weekends: true,
+            eventConstraint: {
+                start: moment().format('YYYY-MM-DD'),
+                end: '2100-01-01' // hard coded goodness unfortunately
+            },
             defaultTImedEventDuration: '00:15:00',
             navLinks: true,
-            selectable: true,
+            selectable: false,
             selectHelper: true,
             select: function (start, end) {
                 var title = prompt('Event Title:');
@@ -87,14 +128,32 @@
                         start: start,
                         end: end
                     };
-                    $('#calendar').fullCalendar('renderEvent', eventData, true);
+                    $('#appointment-calendar').fullCalendar('renderEvent', eventData, true);
                 }
-                $('#calendar').fullCalendar('unselect');
+                $('#appointment-calendar').fullCalendar('unselect');
             },
             editable: false,
             eventLimit: true,
-            events: myArray
-
+            events: myArray,
+            dayClick: function (date, jsEvent, view) {
+                //to get date use date.format());
+                //POPUPCODE START
+                $mindate = date.format('MM-DD-YY');
+                alert($mindate);
+                $('#logdate').val(date.format());
+                $("#enddate").datepicker({
+                    dateFormat: 'dd-mm-yy'
+                });
+                $("#enddate").datepicker('option', 'minDate', $mindate);
+            }
         });
+        $("#somediv").load().dialog(
+                  {   //Set options for the dialog here
+                      modal: true,
+                      autoResize: true,
+                      maxWidth: 600,
+                      minWidth: 500
+                  });
+        //POPUPCODE END
     })
 </script>

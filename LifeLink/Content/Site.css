@@ -29,6 +29,11 @@ textarea {
     max-width: 280px;
 }
 
+td.fc-day.fc-past {
+    background-color: #EEEEEE;
+}
+
+
 a {
     color: rgba(0, 0, 0, 0.58);
     text-decoration: none;
