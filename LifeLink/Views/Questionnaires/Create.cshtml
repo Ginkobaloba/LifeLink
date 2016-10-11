@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Blood Donor History Questionnaire</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Questionnaire</h4>
+        <h5>This questionnaire is designed to aid blood establishments in evaluating a prospective donor’s history<br />relative to current known blood safety risks, FDA regulations and recommendations</h5>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -157,12 +157,12 @@
                         @Html.Label("needles-false", "No")
                     </div>
                 </div>
-            </div>u
+            </div>
 
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Am I Eligible" class="btn btn-default" />
+                    <input type="submit" value="Am I Eligible?" class="btn btn-default" />
                 </div>
             </div>
         </div>

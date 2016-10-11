@@ -44,14 +44,18 @@
             <div class="container body-content">
                 @RenderBody()
                 <hr />
-                <footer>
-
-                    <span style="inline">
-                        <a class="btn btn-danger" href="https://twitter.com/LifeLinkGroup"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i>&nbsp; Follow</a>
-                        <a class="btn btn-danger" href="#"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; Email</a>
-                        <a class="btn btn-danger" href="https://www.facebook.com/Project-TLC-102592336500272/"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>&nbsp; Like</a>
-
-                    </span>
+                <footer class="navbar navbar-default navbar-fixed-bottom text-center">
+                    <div class="socialmedia">
+                        <ul>
+                            <li><a class="fa fa-twitter fa-fw tooltip_link" href="https://twitter.com/LifeLinkGroup"><div class="tooltip_body">
+                                Follow us</div></a></li>
+                            <li><a class="fa fa-envelope-o fa-fw tooltip_link" href="#"><div class="tooltip_body">
+                                Email us</div></a></li>
+                            <li><a class="fa fa-facebook fa-fw tooltip_link" href="https://www.facebook.com/Project-TLC-102592336500272/">
+                            <div class="tooltip_body">
+                                Like us</div></a></li>
+                        </ul>
+                    </div>
 
                     <p>&copy; @DateTime.Now.Year - LifeLink Group</p>
                 </footer>
