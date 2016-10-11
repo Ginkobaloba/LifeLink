@@ -24,7 +24,6 @@ namespace LifeLink.Controllers
                 title = a.title,
                 start = a.start,
                 end = a.end,
-                Status = a.Status,
                 LocationName = a.Location.Name,
                 Username = a.AspNetUsers.UserName
             });
@@ -49,36 +48,35 @@ namespace LifeLink.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
-            
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId");
 
-            var UserId = User.Identity.GetUserId();
-            var clientInfo = (from c in db.ClientInfo where (c.UserId == UserId) select c).FirstOrDefault();
+            return View();        
+            
+            //ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
+        //    ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId");
 
-            if (clientInfo.Approved != true)
-            {
-                return RedirectToAction("Denial", "Questionnaires");
-            }
-            return View();
+        //    var UserId = User.Identity.GetUserId();
+        //    var clientInfo = (from c in db.ClientInfo where (c.UserId == UserId) select c).FirstOrDefault();
+
+        //    if (clientInfo.Approved == true)
+        //    {
+        //        return RedirectToAction("Denial", "Questionnaires");
+        //    }
+        //    return View();
+        //}
+
         }
+
+
 
         // POST: Appointments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,title,start,end,Status,LocationId,UserId")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "id,title,start,end,LocationId,UserId")] Appointment appointment)
         {
-            var UserId = User.Identity.GetUserId();
-
-            var clientInfo = (from c in db.ClientInfo where (c.UserId == appointment.UserId) select c).FirstOrDefault();
-
-            if (clientInfo.Approved != true)
-            {
-                RedirectToAction("Denial", "Questionnaires");
-            }
-
 
             if (ModelState.IsValid)
             {
@@ -87,10 +85,31 @@ namespace LifeLink.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", appointment.UserId);
+            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", appointment.UserId);
             ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId", appointment.LocationId);
             return View(appointment);
         }
+        //var UserId = User.Identity.GetUserId();
+
+        //    var clientInfo = (from c in db.ClientInfo where (c.UserId == appointment.UserId) select c).FirstOrDefault();
+
+        //    if (clientInfo.Approved != true)
+        //    {
+        //        RedirectToAction("Denial", "Questionnaires");
+        //    }
+
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Appointment.Add(appointment);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.UserId = new SelectList(db.Users, "Id", "Email", appointment.UserId);
+        //    ViewBag.LocationId = new SelectList(db.Location, "LocationId", "LocationId", appointment.LocationId);
+        //    return View(appointment);
+        //}
 
         // GET: Appointments/Edit/5
         public ActionResult Edit(int? id)
@@ -114,7 +133,7 @@ namespace LifeLink.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,title,start,end,Status,LocationId,UserId")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "id,title,start,end,LocationId,UserId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
