@@ -12,7 +12,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h5>This questionnaire is designed to aid blood establishments in evaluating a prospective donor’s history<br />relative to current known blood safety risks, FDA regulations and recommendations</h5>
+        <h5>
+            This questionnaire is designed to aid blood establishments in evaluating a prospective donor’s history<br />
+            relative to current known blood safety risks, FDA regulations and recommendations.
+        </h5>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -77,7 +80,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Medications5, "5.", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <p>Have you taken any of the medications on this <a href="http://www.unitedbloodservices.org/pdf/bs351m.pdflist">list</a> in the past week?</p>
+                    <p>Have you taken any of the medications on this <a target="_blank" href="http://www.bloodsystems.org/pdf/BS_351M.pdf">Medication Deferral List</a> in the past week?</p>
                     <div class="checkbox">
                         @Html.RadioButtonFor(model => model.Medications5, false, new { id = "Medication-true", @class = "text-info", @checked = false })
                         @Html.Label("Medication-true", "Yes")
