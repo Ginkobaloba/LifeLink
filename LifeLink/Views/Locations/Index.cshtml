@@ -25,9 +25,9 @@
         <input type="radio" name="sex" value="C" id="sex_m" class="register-switch-input" checked>
         <label for="sex_m" class="register-switch-label">Current</label>
     </div>
-    <input type="button" value="Select closest" class="register-button" onclick="initMap();">
-    @Html.ActionLink("Back to List", "Create","Appointments")
-    @*<input type="button" value="Make Appointment" class="register-button" onclick="window.location.href('@Url.Action("Create","Appointments")')" />*@
+    <input type="button" value="Select closest" class="btn btn-default" onclick="initMap();" />
+    <br />
+    <p><a class="btn btn-default" href="@Url.Action("Create","Appointments")">Make Appointment</a></p>
 </form>
 <div id="map"></div>
     <script>
