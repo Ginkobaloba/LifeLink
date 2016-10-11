@@ -4,8 +4,8 @@
     ViewBag.Title = "LifeLink - Welcome";
 }
 
-<h2>Select Location</h2>
-<div class="col-md-12">
+@*<h2>Select Location</h2>*@
+@*<div class="col-md-12">
     <form class="register">
         <div class="register-switch">
             <input type="radio" name="sex" value="H" id="sex_f" class="register-switch-input" checked>
@@ -16,17 +16,18 @@
         <input type="button" value="Select closest" class="register-button" onclick="HomeOrCurrent(document.getElementById('sex_f').checked)">
         <input type="button" value="Make Appointment" class="register-button" onclick="myFunction()">
     </form>
-</div>
+</div>*@
 <h1 class="register-title">Select Location</h1>
 <form class="register">
-    <div class="register-switch">
+    <div class="register-switch">   
         <input type="radio" name="sex" value="H" id="sex_f" class="register-switch-input">
         <label for="sex_f" class="register-switch-label">Home</label>
         <input type="radio" name="sex" value="C" id="sex_m" class="register-switch-input" checked>
         <label for="sex_m" class="register-switch-label">Current</label>
     </div>
-    <input type="button" value="Select closest" class="register-button" onclick="initMap()">
-    <input type="button" value="Make Appointment" class="register-button" onclick="myFunction()">
+    <input type="button" value="Select closest" class="register-button" onclick="initMap();">
+    @Html.ActionLink("Back to List", "Create","Appointments")
+    @*<input type="button" value="Make Appointment" class="register-button" onclick="window.location.href('@Url.Action("Create","Appointments")')" />*@
 </form>
 <div id="map"></div>
     <script>
