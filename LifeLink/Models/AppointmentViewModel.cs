@@ -10,6 +10,7 @@ namespace LifeLink.Models
     {
         public int id { get; set; }
 
+        [Display(Name = "Description")]
         public string title { get; set; }
 
         [Display(Name = "Start Time")]
@@ -17,8 +18,6 @@ namespace LifeLink.Models
 
         [Display(Name = "End Time")]
         public DateTime end { get; set; }
-
-        public string Status { get; set; }
 
         [Display(Name = "Location Name")]
         public string LocationName { get; set; }

@@ -166,9 +166,9 @@ namespace LifeLink.Controllers
 
                         if (model.LanguageCode == "es")
                         {
-                            return RedirectToAction("Create", "ClientInfoes");
+                            return RedirectToAction("CreateSP", "ClientInfoes");
                         }
-                        return RedirectToAction("CreateSP", "ClientInfoes");
+                        return RedirectToAction("Create", "ClientInfoes");
                     }
                     AddErrors(result);
                 

@@ -1,0 +1,14 @@
+﻿@model LifeLink.Models.Questionnaire
+
+@{
+    ViewBag.Title = "Approval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Congratulations!</h2>
+
+<p>You have been conditionally approved as a LifeLink donor. You are cleared to make an appointment now, begin earning reward points, and start saving lives!</p>
+
+@Html.ActionLink("Let's Go!", "Index", "Locations")
+
+<img class="img-responsive img-fluid" src="http://wallpaperlayer.com/img/2015/6/red-balloons-wallpaper-3178-3379-hd-wallpapers.jpg" />

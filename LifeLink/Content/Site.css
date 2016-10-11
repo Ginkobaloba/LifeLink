@@ -78,7 +78,7 @@ a:hover,a:focus {
 
 .btn-danger {
     color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.81);
+    background-color: #760706;
     border-color: #000;
     margin-bottom:10px;
 }
@@ -88,8 +88,8 @@ a:hover,a:focus {
 	background-color: rgba(0, 0, 0, 0.46);
 	border-color: #3f3f3f;
     border:2px solid dotted;
-    box-shadow: inset 0 0 0 4px #760706;
-	background-color: #760706;
+    box-shadow: inset 0 0 0 4px #000;
+	background-color: #000;
     transition: all 0.5s ease-in;
 }
 
@@ -156,30 +156,12 @@ a:hover,a:focus {
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  */
-.register-title {
-  width: 270px;
-  line-height: 43px;
-  margin: 50px auto 20px;
-  font-size: 19px;
-  font-weight: 500;
-  color: white;
-  color: rgba(255, 255, 255, 0.95);
-  text-align: center;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  background: #d7604b;
-  border-radius: 3px;
-  background-image: -webkit-linear-gradient(top, #dc745e, #d45742);
-  background-image: -moz-linear-gradient(top, #dc745e, #d45742);
-  background-image: -o-linear-gradient(top, #dc745e, #d45742);
-  background-image: linear-gradient(to bottom, #dc745e, #d45742);
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
-}
 
 .register {
-  margin: 0 auto;
-  width: 230px;
-  padding: 20px;
+  margin: 0 0 20px auto;
+  float:left;
+  width: 25%;
+  padding: 10px;
   background: #f4f4f4;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -195,20 +177,6 @@ input {
   box-sizing: border-box;
 }
 
-.register-input {
-  display: block;
-  width: 100%;
-  height: 38px;
-  margin-top: 2px;
-  font-weight: 500;
-  background: none;
-  border: 0;
-  border-bottom: 1px solid #d8d8d8;
-}
-.register-input:focus {
-  border-color: #1e9ce6;
-  outline: 0;
-}
 
 .register-button {
   display: block;
@@ -312,3 +280,89 @@ input {
   border: 0;
   padding: 0;
 }
+
+/*FOOTER ICONS*/
+.socialmedia, .socialmedia ul, .socialmedia li {
+  margin: 0;
+  padding: 1.5px;
+}
+.socialmedia li {
+    list-style: none outside none;
+    display: inline-block;
+}
+.socialmedia .fa {
+	width: 30px;
+    height: 30px;
+	color: #fff;
+	background-color: #760706;
+	padding-top: 9px;
+	border-radius: 22px;
+	-moz-border-radius: 22px;
+	-webkit-border-radius: 22px;
+	-o-border-radius: 22px;
+}
+.socialmedia .fa:hover {
+	color: #FFF;
+	background-color: #000;
+    text-decoration:none;
+    box-shadow: inset 0 0 0 4px #000;
+	background-color: #000;
+    transition: all 0.5s ease-in;
+}
+
+/* tooltip */
+.tooltip_link {
+  position: relative;
+}
+.tooltip_link:hover,
+.tooltip_link:focus {
+      overflow: visible;
+}
+
+/* tooltip body */
+.tooltip_body {
+    background: #760706;
+    font-family: sans-serif;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-sizing: inherit;
+    color: #fff;
+    left: 0;
+    margin-left: 50%;
+    opacity: 0;
+    position: absolute;
+    padding: 5px 8px;
+    top: -25px;
+    white-space: nowrap;
+    visibility: hidden;
+    z-index: 10;
+    transition: opacity 150ms ease-out 150ms, top 150ms ease-out 100ms, visibility 150ms ease-out 100ms;
+    -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+.tooltip_body::after {
+	content: '';
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	margin-left: -6px;
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #760706;
+}
+.tooltip_link:hover .tooltip_body,
+.tooltip_link:focus .tooltip_body {
+	top: -30px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.page-row {
+    height:auto;
+    background-color: rgba(0, 0, 0, 0.81);
+    color:#fff;
+}
+
