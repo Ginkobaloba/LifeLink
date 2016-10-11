@@ -24,14 +24,19 @@ namespace LifeLink.Controllers
             foreach (var item in querylocations)
             {
                 LocationViewModel viewmodel = new LocationViewModel();
-
+                
                 viewmodel.LocationId = item.LocationId;
                 viewmodel.LocationLat = item.LocationLat;
                 viewmodel.LocationLong = item.LocationLong;
                 viewmodel.Name = item.Name;
                 viewmodel.StreetAddress = item.StreetAddress;
-                viewmodel.personlat = query.Latitude;
-                viewmodel.personlng = query.Longitude;
+                viewmodel.personlat = -3;
+                viewmodel.personlng = -3;
+                if (viewmodel.LocationId == query.ClosestLocationId)
+                {
+                    viewmodel.personlat = query.Latitude;
+                    viewmodel.personlng = query.Longitude;
+                }
                 Locations.Add(viewmodel);
             }
             
